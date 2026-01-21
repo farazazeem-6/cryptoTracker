@@ -39,7 +39,7 @@ const useStyles = makeStyles(() => ({
 function CoinsTabel() {
   const currentCurrency = useSelector((state) => state.currency.currency);
   const currentSymbol = useSelector((state) => state.currency.symbol);
-  const { loading, error } = useFetchAllCoins(currentCurrency);
+  const { loading } = useFetchAllCoins(currentCurrency);
   const allCoins = useSelector((state) => state.allCoins.allCoins);
   const navigate = useNavigate();
   const [page, setPage] = useState(1);
