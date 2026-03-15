@@ -81,7 +81,7 @@ function CoinsTabel() {
         <TextField
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          label="Search For a Crypto Currency.."
+          label="Search For a Crypto Currency..."
           variant="outlined"
           sx={{
             marginBottom: 2,

@@ -3,7 +3,7 @@ import { makeStyles } from "@mui/styles";
 function SelectedButton({ children, selected, onClick }) {
   const useStyles = makeStyles(() => ({
     selectedButton: {
-      border: "2px solid gold",
+      border: "1.5px solid gold",
       padding: "10px 20px",
       cursor: "pointer",
       color: selected ? "black" : "",
