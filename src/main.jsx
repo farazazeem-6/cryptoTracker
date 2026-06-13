@@ -6,7 +6,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Provider } from "react-redux";
 import appStore from "./store/store.js";
 import CoinPage from "./Pages/CoinPage.jsx";
-import { createTheme, ThemeProvider } from "@mui/material";
 
 const appRoute = createBrowserRouter([
   {

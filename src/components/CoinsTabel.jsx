@@ -169,7 +169,7 @@ function CoinsTabel() {
                               alignItems: "center",
                             }}
                           >
-                            {/* SMALLER IMAGE ON MOBILE */}
+                            
                             <Box
                               component="img"
                               src={row.image}
@@ -195,7 +195,7 @@ function CoinsTabel() {
                                     xs: "0.75rem",
                                     sm: "1rem",
                                     md: "1.375rem",
-                                  }, // 12px on mobile!
+                                  },
                                   fontWeight: 500,
                                 }}
                               >
@@ -230,7 +230,7 @@ function CoinsTabel() {
                               xs: "0.7rem",
                               sm: "0.85rem",
                               md: "1rem",
-                            }, // Smaller on mobile
+                            },
                             padding: {
                               xs: "6px 4px",
                               sm: "10px 12px",
@@ -258,7 +258,7 @@ function CoinsTabel() {
                               xs: "0.7rem",
                               sm: "0.85rem",
                               md: "1rem",
-                            }, // Smaller on mobile
+                            },
                             padding: {
                               xs: "6px 4px",
                               sm: "10px 12px",
@@ -307,7 +307,7 @@ function CoinsTabel() {
             display: "flex",
             justifyContent: "center",
             "& .MuiPaginationItem-root": {
-              fontSize: { xs: "0.7rem", sm: "0.85rem" }, // Smaller pagination
+              fontSize: { xs: "0.7rem", sm: "0.85rem" },
               minWidth: { xs: "28px", sm: "32px" },
               height: { xs: "28px", sm: "32px" },
             },

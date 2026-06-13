@@ -54,14 +54,14 @@ const CoinPage = () => {
             <h5 className={styles.heading5}>Market Cap:</h5>
             &nbsp; &nbsp;
             <h6 className={styles.heading6}>
-              {currentSymbol}{" "}
+              {currentSymbol}
               {addCommas(
                 Math.floor(
                   (coinData?.market_data?.market_cap?.[
                     currentCurrency.toLowerCase()
                   ] ?? 0) / 1_000_000
                 )
-              )}{" "}
+              )}
               M
             </h6>
           </span>
