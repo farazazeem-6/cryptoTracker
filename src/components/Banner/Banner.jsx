@@ -1,6 +1,7 @@
 import { Container, Typography } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import Carousel from "./Carousel";
+import { bannerMessages } from "../../constants/messages";
 
 const useStyles = makeStyles(() => ({
   banner: {
@@ -28,10 +29,10 @@ const Banner = () => {
       <Container className={classes.bannerContent}>
         <div className={classes.tagLine}>
           <Typography variant="h2" sx={{ fontWeight: "bold", marginBottom: 5 }}>
-            Crypto Hunter
+            {bannerMessages.title}
           </Typography>
           <Typography variant="subtitle2" sx={{ textTransform: "capitalize" }}>
-            Get all the Info regarding your favourite Crypto Coin.
+            {bannerMessages.subtitle}
           </Typography>
         </div>
         <Carousel />
