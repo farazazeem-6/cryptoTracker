@@ -1,61 +1,72 @@
-# 🚀 Crypto Tracker App
+# 🚀 Crypto Tracker
 
-A simple and powerful crypto tracking application where users can:
-
-* 🔍 Search cryptocurrencies in real-time
-* 📈 View top trending coins
-* 💹 Check live prices and market stats
-* 📊 See historical price charts (All time, 1 year, 1 month, 1 week, 24 hours)
+A React + Redux cryptocurrency tracker built with the [CoinGecko API](https://www.coingecko.com/en/api). Browse coins ranked by market cap, search for a specific coin, and drill into a coin's page to see its price history on an interactive chart.
 
 ---
 
 ## 📦 Features
 
-### 🔥 Trending Coins
+### 🔥 Trending Coins Carousel
 
-* Get a list of top trending coins fetched from a crypto API.
-* Shows coin name, logo, rank, and price.
+* A rotating carousel on the home banner (`react-alice-carousel`) showing top trending coins with logo, symbol, 24h % change, and current price.
 
-### 💰 Live Market Data
+### 💰 Market Table
 
-* Live price updates.
-* Market cap, volume, 24h high/low, and price change.
+* Paginated table of all coins ranked by market cap (price, 24h change, market cap).
+* Live search/filter by coin name or ticker.
+* Responsive layout — market cap column and coin names collapse on small screens.
+* Clicking a row navigates to that coin's detail page.
 
-### 📊 Interactive Charts
+### 📊 Coin Detail Page
 
-* Users can explore historical crypto prices.
-* Timeframes include: **All**, **1Y**, **6M**, **3M**, **1M**, **1W**, **24H**.
-* Smooth charts for better visualization.
+* Coin logo, name, description, market cap rank, current price, and market cap.
+* Historical price line chart (Chart.js) with selectable timeframes: **24 Hours**, **30 Days**, **3 Months**, **1 Year**.
 
-### 🔍 Search Functionality
+### 💱 Currency Switcher
 
-* Search any coin by name or ticker.
-* Instant filtering.
+* Toggle prices between **USD ($)**, **PKR (Rs)**, and **INR (₹)** from the header. All prices, charts, and market data update accordingly.
 
 ---
 
 ## 🛠️ Tech Stack
 
-* **Frontend:** React.js
-* **Styling:** Tailwind CSS / CSS
-* **Chart Library:** Chart.js or Recharts
-* **API:** CoinGecko (or any crypto API you prefer)
+* **Frontend:** React 19 + Vite
+* **Routing:** React Router v7
+* **State Management:** Redux Toolkit (currency, all coins, trending coins, single coin slices)
+* **UI Library:** MUI (Material UI) + `@mui/styles`
+* **Charts:** Chart.js via `react-chartjs-2`
+* **Carousel:** react-alice-carousel
+* **HTTP Client:** Axios
+* **API:** [CoinGecko API](https://api.coingecko.com/api/v3) (`/coins/markets`, `/coins/:id`, `/coins/:id/market_chart`)
+* **Linting:** ESLint 9
 
 ---
 
-## 📂 Folder Structure
+## 📂 Project Structure
 
 ```
-root
-│── src
-│   ├── components   # Reusable UI components
-│   ├── pages        # App screens/pages
-│   ├── hooks        # Custom hooks for fetching data
-│   ├── assets       # Images/icons
-│   └── utils        # Helper functions
-│
-└── public
+src
+├── components
+│   ├── Banner/         # Home page banner + trending coins carousel
+│   ├── CoinInfo.jsx     # Historical price chart + timeframe selector
+│   ├── CoinsTabel.jsx   # Market cap table with search & pagination
+│   ├── Header.jsx       # App bar with currency selector
+│   └── SelectedButton.jsx
+├── constants/           # API endpoints & static UI copy
+├── hooks/                # useFetchAllCoins, useFetchSingleCoin, useFetchTrendingCoins
+├── Layout/               # App shell (Header + <Outlet />) and theme
+├── Pages/                # HomePage, CoinPage (route-level components)
+├── store/                # Redux Toolkit store and slices
+├── styles/               # CSS modules
+└── utils/                # Helper functions & shared constants (e.g. chart timeframes)
 ```
+
+Routes (defined in `src/main.jsx`):
+
+| Path         | Page     |
+|--------------|----------|
+| `/`          | Home page — banner, trending carousel, market table |
+| `/coin/:id`  | Coin detail page — stats + historical chart |
 
 ---
 
@@ -64,7 +75,7 @@ root
 1. Clone the repo:
 
 ```bash
-git clone your-repo-url
+git clone <your-repo-url>
 ```
 
 2. Install dependencies:
@@ -73,14 +84,21 @@ git clone your-repo-url
 npm install
 ```
 
-3. Start the project:
+3. Start the dev server:
 
 ```bash
 npm run dev
 ```
 
----
+Other scripts:
 
+```bash
+npm run build     # production build
+npm run preview   # preview the production build
+npm run lint       # run ESLint
+```
+
+---
 
 ## 🧾 License
 
